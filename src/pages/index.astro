@@ -1,4 +1,5 @@
 ---
+import { Data } from '../data/Modules.data';
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -9,39 +10,31 @@ import Layout from '../layouts/Layout.astro';
 			class='text-white flex gap-40 justify-center bg-image bg-no-repeat bg-contain bg-transparent bg-center'
 		>
 			<div class='flex flex-col gap-24'>
-				<a
-					href='ModuleA'
-					class='px-10 py-5 text-lg font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
-					>Módulo A</a
-				>
-				<a
-					href='ModuleB'
-					class='px-10 py-5 text-lg font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
-					>Módulo B</a
-				>
-				<a
-					href='ModuleC'
-					class='px-10 py-5 text-lg font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
-					>Módulo C
-				</a>
+				{
+					Data.map((modulo) => {
+						if(modulo.modulo != "D".toString() && modulo.modulo.toString() != "E" && modulo.modulo.toString() != "F")
+						{
+							return (<a
+								href=`modulos/${modulo.modulo}`
+								class='px-10 py-5 text-lg font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+							>Módulo {modulo.modulo}</a>)
+						}
+					})
+				}
 			</div>
 
 			<div class='flex flex-col gap-24'>
-				<a
-					href='ModuleD'
-					class='px-10 py-5 text-lg font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
-					>Módulo D</a
-				>
-				<a
-					href='ModuleE'
-					class='px-10 py-5 text-lg font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
-					>Módulo E</a
-				>
-				<a
-					href='ModuleF'
-					class='px-10 py-5 text-lg font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
-					>Módulo F
-				</a>
+				{
+					Data.map((modulo) => {
+						if(modulo.modulo != "A".toString() && modulo.modulo.toString() != "B" && modulo.modulo.toString() != "C")
+						{
+							return (<a
+								href=`modulos/${modulo.modulo}`
+								class='px-10 py-5 text-lg font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+							>Módulo {modulo.modulo}</a>)
+						}
+					})
+				}
 			</div>
 		</main>
 	</div>
